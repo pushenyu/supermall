@@ -1,13 +1,15 @@
 <template>
-  <swiper>
-    <template v-for="item in banners">
-      <swiper-item :key="item.acm">
-        <a :href="item.link">
-          <img :src="item.image" alt="" />
-        </a>
-      </swiper-item>
-    </template>
-  </swiper>
+  <div>
+    <swiper>
+      <template v-for="item in banners">
+        <swiper-item :key="item.acm">
+          <a :href="item.link">
+            <img @load="imageLoad" :src="item.image" alt />
+          </a>
+        </swiper-item>
+      </template>
+    </swiper>
+  </div>
 </template>
 
 <script>
@@ -20,9 +22,22 @@ export default {
       return [];
     },
   },
+  data() {
+    return {
+      isLoad: false,
+    };
+  },
   components: {
     Swiper,
     SwiperItem,
+  },
+  methods: {
+    imageLoad() {
+      if (!this.isLoad) {
+        this.$emit("swiperImageLoad");
+        this.isLoad = true;
+      }
+    },
   },
 };
 </script>

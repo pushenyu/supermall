@@ -1,7 +1,7 @@
 <template>
   <div class="goods">
     <template v-for="item in goods">
-      <goods-lis-iitem :goodsItem="item" :key="item.acm" />
+      <goods-lis-iitem :goodsItem="item" />
     </template>
   </div>
 </template>

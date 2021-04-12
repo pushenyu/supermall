@@ -3,7 +3,7 @@
     <template v-for="item in recommends">
       <div class="recommends-item" :key="item.acm">
         <a :href="item.link">
-          <img :src="item.image" alt="" />
+          <img :src="item.image" alt />
           <div>{{ item.title }}</div>
         </a>
       </div>
